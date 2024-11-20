@@ -5,9 +5,8 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(cors()); // Enable CORS
+app.use(cors()); 
 
-// Nodemailer function for sending the welcome email
 async function sendMail(toEmail) {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -33,7 +32,6 @@ async function sendMail(toEmail) {
     }
 }
 
-// Route to handle subscription
 app.post('/subscribe', async (req, res) => {
     const { email } = req.body;
 
